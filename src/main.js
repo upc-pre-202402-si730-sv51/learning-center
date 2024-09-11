@@ -37,11 +37,19 @@ import Textarea from "primevue/textarea";
 import Toolbar from "primevue/toolbar";
 import Toast from "primevue/toast";
 
+import router from "./router/index.js";
+
 // Create app instance
+
 const app = createApp(App);
 
 // Use i18n
+
 app.use(i18n);
+
+// Use Router
+
+app.use(router);
 
 // Use PrimeVue
 
