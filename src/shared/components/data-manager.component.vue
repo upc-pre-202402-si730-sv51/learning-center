@@ -78,6 +78,30 @@ export default {
       <pv-button icon="pi pi-download" label="Export" severity="help" @click="exportToCsv($event)"/>
     </template>
   </pv-toolbar>
+
+  <pv-data-table
+    ref="dt"
+    v-model:selection="selectedItems"
+    :filters="filters"
+    :paginator="true"
+    :rows="10"
+    :rows-per-page-options="[5, 10, 15]"
+    :value="items"
+    current-page-report-template="Showing {first} to {last} of {totalRecords} ${{title.plural}}"
+    data-key="id"
+    paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown">
+    <pv-column :exportable="false" selection-mode="multiple" style="width: 3em"/>
+    <slot name="custom-columns"></slot>
+    <pv-column v-if="dynamic" v-for="column in columns"
+               :key="column.field"
+               :field="column.field" :header="column.header"/>
+    <pv-column :exportable="false" style="min-width:8rem">
+      <template #body="slotProps">
+        <pv-button icon="pi pi-pencil" outlined rounded class="mr-2" @click="editItem(slotProps.data)"/>
+        <pv-button icon="pi pi-trash" outlined rounded severity="danger" @click="confirmDeleteItem(slotProps.data)"/>
+      </template>
+    </pv-column>
+  </pv-data-table>
 </template>
 
 <style scoped>
