@@ -101,18 +101,17 @@ export default {
       this.notifySuccessfulAction('Categories Deleted');
     },
     //#endregion
-
-    //#region Lifecycle Hooks
-    created() {
-      this.categoryService = new CategoryService();
-      this.categoryService.getAll().then(response => {
-        this.categories = response.map(category => new Category(category));
-        console.log(this.categories);
-      }).catch(error => console.error(error));
-    }
-
-    //#endregion
+  },
+  //#region Lifecycle Hooks
+  created() {
+    this.categoryService = new CategoryService();
+    this.categoryService.getAll().then(response => {
+      this.categories = response.data.map(category => new Category(category));
+      console.log(this.categories);
+    }).catch(error => console.error(error));
   }
+
+  //#endregion
 }
 </script>
 
