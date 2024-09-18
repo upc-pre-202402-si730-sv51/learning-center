@@ -38,6 +38,7 @@ import Toolbar from "primevue/toolbar";
 import Toast from "primevue/toast";
 
 import router from "./router/index.js";
+import SelectButton from "primevue/selectbutton";
 
 // Create app instance
 
@@ -68,6 +69,7 @@ app.component('pv-button', Button)
     .component('pv-data-table', DataTable)
     .component('pv-dialog', Dialog)
     .component('pv-select', Select)
+    .component('pv-select-button', SelectButton)
     .component('pv-file-upload', FileUpload)
     .component('pv-float-label', FloatLabel)
     .component('pv-icon-field', IconField)
