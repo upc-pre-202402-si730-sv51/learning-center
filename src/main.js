@@ -5,6 +5,7 @@ import i18n from "./i18n.js";
 
 // PrimeVue
 import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
 
 // PrimeFlex
 import 'primeflex/primeflex.css';
@@ -54,7 +55,7 @@ app.use(router);
 
 // Use PrimeVue
 
-app.use(PrimeVue, { ripple: true })
+app.use(PrimeVue, { theme: { preset: Aura }, ripple: true })
     .use(ConfirmationService)
     .use(DialogService)
     .use(ToastService);
