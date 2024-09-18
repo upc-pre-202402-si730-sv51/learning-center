@@ -4,6 +4,8 @@ export class CategoryService {
     resourceEndpoint = '/categories';
 
     getAll() {
+        console.log(http.defaults.baseURL);
+        console.log(this.resourceEndpoint);
         return http.get(this.resourceEndpoint);
     }
 
