@@ -1,9 +1,12 @@
 <script>
 import {Category} from "../model/category.entity.js";
 import {CategoryService} from "../services/category.service.js";
+import DataManager from "../../shared/components/data-manager.component.vue";
+import CategoryCreateAndEditDialog from "../components/category-create-and-edit.component.vue";
 
 export default {
   name: "category-management",
+  components: {CategoryCreateAndEditDialog, DataManager},
   data() {
     return {
       title: { singular: 'Category', plural: 'Categories' },
@@ -114,7 +117,25 @@ export default {
 </script>
 
 <template>
-
+  <div class="w-full">
+    <data-manager :title="title"
+                  v-bind:items="categories"
+                  v-on:new-item-requested="onNewItem"
+                  v-on:edit-item-requested="onEditItem($event)"
+                  v-on:delete-item-requested="onDeleteItem($event)"
+                  v-on:delete-selected-items-requested="onDeleteSelectedItems($event)">
+      <template #custom-columns>
+        <pv-column :sortable="true" field="id" header="Id" style="min-width: 12rem"/>
+        <pv-column :sortable="true" field="name" header="Name" style="min-width: 24rem"/>
+      </template>
+    </data-manager>
+    <category-create-and-edit-dialog
+      :edit="isEdit"
+      :item="category"
+      :visible="createAndEditDialogIsVisible"
+      v-on:cancel-requested="onCancelRequested"
+      v-on:save-requested="onSaveRequested($event)"/>
+  </div>
 </template>
 
 <style scoped>
