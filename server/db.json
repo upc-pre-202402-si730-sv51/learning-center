@@ -1,5 +1,18 @@
 {
   "tutorials": [],
   "courses": [],
-  "categories": []
+  "categories": [
+    {
+      "id": 1,
+      "name": "Web Development"
+    },
+    {
+      "id": 2,
+      "name": "Mastering Vue "
+    },
+    {
+      "id": 3,
+      "name": ".NET Unleashed"
+    }
+  ]
 }
