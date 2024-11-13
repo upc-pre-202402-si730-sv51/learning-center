@@ -40,6 +40,7 @@ import Toast from "primevue/toast";
 
 import router from "./router/index.js";
 import SelectButton from "primevue/selectbutton";
+import {createPinia} from "pinia";
 
 // Create app instance
 
@@ -52,6 +53,10 @@ app.use(i18n);
 // Use Router
 
 app.use(router);
+
+// Use Pinia
+const pinia = createPinia();
+app.use(pinia);
 
 // Use PrimeVue
 
