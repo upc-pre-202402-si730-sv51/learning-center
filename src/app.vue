@@ -1,9 +1,10 @@
 <script>
 import LanguageSwitcher from "./public/components/language-switcher.component.vue";
+import AuthenticationSection from "./iam/components/authentication-section.component.vue";
 
 export default {
   name: 'app',
-  components: {LanguageSwitcher},
+  components: {AuthenticationSection, LanguageSwitcher},
   title: 'ACME Learning Center',
   data() {
     return {
@@ -40,6 +41,7 @@ export default {
         </div>
       </template>
       <template #end>
+        <authentication-section/>
         <language-switcher/>
       </template>
     </pv-toolbar>
